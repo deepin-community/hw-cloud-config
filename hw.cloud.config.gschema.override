@@ -1,0 +1,21 @@
+[com.deepin.dde.control-center]
+show-createuser = false
+show-multiscreen = false
+show-suspend = false
+brightness-enable = false
+show-hibernate = false
+auto-login-visable=false
+keyboard-general-numlock-enable = 'Hidden'
+hide-module = ['mouse']
+
+[com.deepin.dde.sessionshell.control]
+sleep = false
+hibernate = false
+use-deepin-auth = false
+switchuser = 2
+
+[com.deepin.dde.auth.control]
+use-deepin-auth = false
+
+[com.deepin.dde.filemanager.desktop]
+show-screen-saver=false

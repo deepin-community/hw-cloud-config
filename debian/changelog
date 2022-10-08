@@ -1,0 +1,17 @@
+hw-cloud-config (2.0.0.0) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Deepin Sysdev <sysdev@deepin.com>  Tue, 14 Jun 2022 18:39:14 +0800
+
+hw-cloud-config (2.0.0.0) unstable; urgency=low
+
+  * release 2.0.0.0
+
+ --  <fanpengcheng@uniontech.com>  Tue, 14 June 2022 17:31:13 +0800
+
+hw-cloud-config (1.0.0) unstable; urgency=low
+
+  * Autobuild Tag 1.0.0
+
+ -- TagBuilder <tagbuilder@deepin.com>  Fri, 12 Aug 2016 18:43:22 +0000

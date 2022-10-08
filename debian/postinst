@@ -1,0 +1,60 @@
+#!/bin/bash
+
+KWINRC_FILENAME=/etc/xdg/kwinrc
+
+#KWINRC_FILENAME = $HOME/.config/kwinrc
+
+
+
+
+iniOptions=()
+iniSections=()
+
+
+iniValue=
+
+
+function writeInifile()
+{
+	iniFile=$1
+	section=$2
+	option=$3
+	value=$4
+
+#	echo "INPUT "$1 $2 $3 $4 
+	iniValue='default'
+	iniOptions=()
+	iniSections=()
+
+    allSections=$(awk -F '[][]' '/\[.*]/{print $2}' ${iniFile})
+    iniSections=(${allSections// /})
+    sectionFlag="0"
+    for temp in ${iniSections[@]};do
+        if [ "${temp}" = "${section}" ];then
+            sectionFlag="1"
+            break
+        fi
+    done
+ 
+    if [ "$sectionFlag" = "0" ];then
+        echo "[${section}]" >>${iniFile}
+    fi
+    awk "/\[${section}\]/{a=1}a==1" ${iniFile}|sed -e '1d' -e '/^$/d'  -e 's/[ \t]*$//g' -e 's/^[ \t]*//g' -e '/\[/,$d'|grep "${option}.\?=">/dev/null
+    if [ "$?" = "0" ];then
+        sectionNum=$(sed -n -e "/\[${section}\]/=" ${iniFile})
+
+	echo "section num  "+$sectionNum
+        sed -i "${sectionNum},/^\[.*\]/s/\(${option}.\?=\).*/\1 ${value}/g" ${iniFile}
+        echo "[success] update [$iniFile][$section][$option][$value]"
+    else
+        sed -i "/^\[${section}\]/a\\${option} = ${value}" ${iniFile}
+        echo "[success] add [$iniFile][$section][$option][$value]"
+    fi
+}
+
+#echo $iniValue
+#echo $DEEPINVER
+
+writeInifile $KWINRC_FILENAME "Compositing" "OpenGLIsUnsafe" "true"  
+writeInifile $KWINRC_FILENAME "Workspace" "DraggingWithContent" "0"  
+

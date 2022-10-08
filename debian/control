@@ -1,0 +1,15 @@
+Source: hw-cloud-config
+Section: admin
+Priority: optional
+Maintainer: Deepin Sysdev <sysdev@deepin.com>
+Build-Depends: debhelper (>= 9),
+ cmake
+
+Standards-Version: 1.0.0
+Homepage: https://gitlab.deepin.io/dde-v20/hw-cloud-config
+Package: hw-cloud-config
+Architecture: any
+Depends:
+Recommends: 
+Suggests: redshift
+Description: hw-cloud-config

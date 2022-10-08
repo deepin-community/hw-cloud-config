@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/com/deepin/dde/auth/control/" id="com.deepin.dde.auth.control" gettext-domain="dde-polkit-general">
+    <key name='use-deepin-auth' type='b'>
+      <default>false</default>
+      <summary>use Deepin Auth</summary>
+      <description>
+        If enabled, use Deepin Auth.
+        If disabled,  will not use Deepin Auth.
+      </description>
+    </key>
+  </schema>
+</schemalist>
